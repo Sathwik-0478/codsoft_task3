@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LANDING PAGE</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        header {
+            width: 100%;
+            min-height: 100vh;
+            background: url(https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dHJhdmVsJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D) no-repeat center center/cover;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        nav {
+            height: 100px;
+            color: black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2em;
+            letter-spacing: 2px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 20px;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .menu a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            border-bottom: 2px solid indianred;
+            transition: 0.4s linear;
+        }
+
+        .menu a:hover:before {
+            width: 90%;
+        }
+
+        #rei {
+            text-decoration: none;
+            font-size: larger;
+            color: black;
+            align-items: center;
+        }
+
+        .h-txt {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+            color: white;
+        }
+
+        .h-txt span {
+            letter-spacing: 5px;
+        }
+
+        .h-txt h1 {
+            font-size: 3.5em;
+        }
+
+        .h-txt a {
+            text-decoration: none;
+            background: indianred;
+            color: white;
+            padding: 10px 20px;
+            letter-spacing: 5px;
+            transition: 0.4s;
+        }
+
+        .h-txt a:hover {
+            background: transparent;
+            border: 1px solid indianred;
+        }
+
+        .con {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+        }
+
+        .con .tex {
+            font-size: x-large;
+            text-align: center;
+            color: white;
+        }
+
+        .sear {
+            margin-top: 15px;
+          
+            padding-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sear input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        .sear button {
+            padding: 10px 20px;
+            background-color: indianred;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.4s;
+        }
+
+        .sear button:hover {
+            background-color: transparent;
+            border: 1px solid indianred;
+        }
+
+        #book {
+            margin-top: 20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            background-color: indianred;
+            color: white;
+            border-radius: 5px;
+            transition: 0.4s;
+        }
+
+        #book:hover {
+            background-color: transparent;
+            border: 1px solid indianred;
+        }
+
+        .ratings {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .star-rating {
+            unicode-bidi: bidi-override;
+            color: #c5c5c5;
+            font-size: 20px;
+            height: 25px;
+            width: 75px; /* Adjusted width for three stars */
+            margin: 0 auto;
+            position: relative;
+            padding: 0;
+            text-shadow: 0px 1px 0 #a2a2a2;
+        }
+
+        .star-rating span {
+            padding: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            display: block;
+            padding: 5px;
+            text-align: center;
+            cursor: pointer;
+            background-color: transparent;
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .star-rating span:hover,
+        .star-rating span:hover ~ span,
+        .star-rating input[type="radio"]:checked ~ span {
+            color: #ffcc00;
+        }
+
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">Vacation Hangout</div>
+        <div class="menu">
+            <a href="#">HOME</a>
+            <a href="#">SEARCH</a>
+            <a href="#">OFFERS</a>
+            <a href="#">ABOUT US</a>
+            <a href="#">CONTACT</a>
+        </div>
+        <div class="Register">
+            <a id="rei" href="#">Register</a>
+        </div>
+    </nav>
+    <div class="con">
+        <div class="tex">
+            <span>Happy Vacation</span><br/><h2>TRAVEL HANGOUT</h2>
+            <div class="sear">
+                <input type="text" id="searchInput" placeholder="Search">
+                <button onclick="search()">Search</button>
+            </div>
+            <br/>
+            <a id="book" href="">Book Tickets</a>
+        </div>
+    </div>
+</header>
+<div class="ratings">
+    <div class="star-rating">
+        <span>&#9733;</span>
+        <span>&#9733;</span>
+        <span>&#9733;</span>
+    </div>
+</div>
+<script>
+    function search() {
+        var searchValue = document.getElementById("searchInput").value;
+        console.log("Search value:", searchValue);
+        // Perform your search logic here
+    }
+</script>
+</body>
+</html>
